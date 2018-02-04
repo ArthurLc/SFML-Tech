@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers sources\ToolsSFML">
+      <UniqueIdentifier>{61b32dd6-e04f-4b15-ab13-02c9ad19ecd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\ToolsSFML">
+      <UniqueIdentifier>{888ca724-4e1c-4bdf-be10-5c98f559022d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine">
+      <UniqueIdentifier>{11303b6e-d2ab-4215-b394-998fc6930325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Engine">
+      <UniqueIdentifier>{de0c252d-01e1-42f2-ad5d-b5d0c854119a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\GameState">
+      <UniqueIdentifier>{4e04035a-e01c-4ac6-a65a-3919bf3a5364}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GameState">
+      <UniqueIdentifier>{5b4a8d88-9067-4e9a-ac26-2e16d2ce7ae7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Game">
+      <UniqueIdentifier>{40841f79-204c-42e2-9f71-c78c22f899d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Game">
+      <UniqueIdentifier>{902d6eb8-720f-4658-a810-984af3ec4e12}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="system.h">
+      <Filter>Fichiers d%27en-tête\ToolsSFML</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite.h">
+      <Filter>Fichiers d%27en-tête\ToolsSFML</Filter>
+    </ClInclude>
+    <ClInclude Include="audio.h">
+      <Filter>Fichiers d%27en-tête\ToolsSFML</Filter>
+    </ClInclude>
+    <ClInclude Include="text.h">
+      <Filter>Fichiers d%27en-tête\ToolsSFML</Filter>
+    </ClInclude>
+    <ClInclude Include="sfTransform.h">
+      <Filter>Fichiers d%27en-tête\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="sfButton.h">
+      <Filter>Fichiers d%27en-tête\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="math.h">
+      <Filter>Fichiers d%27en-tête\ToolsSFML</Filter>
+    </ClInclude>
+    <ClInclude Include="sfCursor.h">
+      <Filter>Fichiers d%27en-tête\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Fichiers d%27en-tête\GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="InGame.h">
+      <Filter>Fichiers d%27en-tête\GameState</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="system.cpp">
+      <Filter>Fichiers sources\ToolsSFML</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite.cpp">
+      <Filter>Fichiers sources\ToolsSFML</Filter>
+    </ClCompile>
+    <ClCompile Include="audio.cpp">
+      <Filter>Fichiers sources\ToolsSFML</Filter>
+    </ClCompile>
+    <ClCompile Include="text.cpp">
+      <Filter>Fichiers sources\ToolsSFML</Filter>
+    </ClCompile>
+    <ClCompile Include="sfTransform.cpp">
+      <Filter>Fichiers sources\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="sfButton.cpp">
+      <Filter>Fichiers sources\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="math.cpp">
+      <Filter>Fichiers sources\ToolsSFML</Filter>
+    </ClCompile>
+    <ClCompile Include="sfCursor.cpp">
+      <Filter>Fichiers sources\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Fichiers sources\GameState</Filter>
+    </ClCompile>
+    <ClCompile Include="InGame.cpp">
+      <Filter>Fichiers sources\GameState</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

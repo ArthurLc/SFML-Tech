@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\arthu\documents\créajeux\cours\prog3 (2017-2018)\c++\sfml - vierge\projetsfml\projetsfml\main.cpp(13): warning C4007: 'WinMain' : doit être '__stdcall'
+MSVCRTD.lib(exe_main.obj) : error LNK2019: symbole externe non rÚsolu _main rÚfÚrencÚ dans la fonction "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Users\arthu\Documents\CrÚajeux\Cours\PROG3 (2017-2018)\C++\SFML - Vierge\ProjetSFML\Debug\ProjetSFML.exe : fatal error LNK1120: 1 externes non rÚsolus
