@@ -4,6 +4,9 @@
 class InGame
 {
 private:
+	ServerLC * server;
+	ClientLC* client;
+
 	sf::Sprite sprite;
 
 public:

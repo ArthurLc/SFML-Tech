@@ -1,18 +1,20 @@
-﻿  audio.cpp
+﻿  ClientLC.cpp
   InGame.cpp
-  math.cpp
   Menu.cpp
-  sfButton.cpp
+  ServerLC.cpp
+  audio.cpp
   main.cpp
+  math.cpp
+  sfButton.cpp
   sfCursor.cpp
+  sfTransform.cpp
   sprite.cpp
   stdafx.cpp
   system.cpp
   text.cpp
-  sfTransform.cpp
   Génération de code en cours
-  63 of 104 functions (60.6%) were compiled, the rest were copied from previous compilation.
+  3 of 196 functions ( 1.5%) were compiled, the rest were copied from previous compilation.
     1 functions were new in current compilation
-    12 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
-  ProjetSFML.vcxproj -> C:\Users\arthu\Documents\Créajeux\Cours\PROG3 (2017-2018)\C++\SFML - Vierge\ProjetSFML\Release\ProjetSFML.exe
+  ProjetSFML.vcxproj -> D:\SVN\2017-2018\Sections\Prog3A\arthurlacour\C++\SFML-Tech\ProjetSFML\Release\ProjetSFML.exe

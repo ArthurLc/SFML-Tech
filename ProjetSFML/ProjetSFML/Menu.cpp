@@ -3,8 +3,6 @@
 
 Menu::Menu()
 {
-	sprite = LoadSprite("../Datas/PhoneBGLock.png", 0);
-
 	credits = CreateNewText("'Event'\n===\n'ProjetSFML' by Arthur Lacour", arial, 24, sf::Color::Black, sf::Color::Red, 0.5f);
 
 	play_Button = new sfButton("PLAY", { SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });

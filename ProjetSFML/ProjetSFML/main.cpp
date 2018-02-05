@@ -17,7 +17,7 @@ void HideConsole()
 
 int main()
 {
-	HideConsole();
+	//HideConsole();
 	GAME_STATE gameState = GAME_STATE::E_Menu;
 	Menu* menu = new Menu();
 	InGame* game = new InGame();
@@ -25,7 +25,7 @@ int main()
 	sf::RenderWindow window;
 	sfCursor* cursor = new sfCursor();
 
-	sf::Sprite phoneSprite = LoadSprite("../Datas/NotifCircle.png", 0);
+	sf::Sprite mainSprite = LoadSprite("../Datas/NotifCircle.png", 0);
 
 	initializeWindow(window, "ProjetSFML", sf::Vector2u(SCREEN_WIDTH, SCREEN_HEIGHT), false, false, 60);
 
@@ -72,7 +72,7 @@ int main()
 
 
 		window.clear();
-		BlitSprite(phoneSprite, { 0,0 }, window);
+		BlitSprite(mainSprite, { 0,0 }, window);
 
 		switch (gameState)
 		{

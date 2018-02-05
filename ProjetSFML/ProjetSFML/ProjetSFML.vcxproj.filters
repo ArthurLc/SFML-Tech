@@ -37,6 +37,12 @@
     <Filter Include="Fichiers d%27en-tête\Game">
       <UniqueIdentifier>{902d6eb8-720f-4658-a810-984af3ec4e12}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Engine\NetworkLC">
+      <UniqueIdentifier>{40598f44-ad46-48d1-bd8b-3c1410a8165e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine\NetworkLC">
+      <UniqueIdentifier>{ea219c1e-fc49-4c0e-a89b-286a2f874444}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -78,6 +84,15 @@
     <ClInclude Include="InGame.h">
       <Filter>Fichiers d%27en-tête\GameState</Filter>
     </ClInclude>
+    <ClInclude Include="ClientLC.h">
+      <Filter>Fichiers d%27en-tête\Engine\NetworkLC</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkLC.h">
+      <Filter>Fichiers d%27en-tête\Engine\NetworkLC</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerLC.h">
+      <Filter>Fichiers d%27en-tête\Engine\NetworkLC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -115,6 +130,15 @@
     </ClCompile>
     <ClCompile Include="InGame.cpp">
       <Filter>Fichiers sources\GameState</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientLC.cpp">
+      <Filter>Fichiers sources\Engine\NetworkLC</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkLC.cpp">
+      <Filter>Fichiers sources\Engine\NetworkLC</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerLC.cpp">
+      <Filter>Fichiers sources\Engine\NetworkLC</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

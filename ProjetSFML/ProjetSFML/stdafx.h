@@ -39,6 +39,10 @@ enum GAME_STATE
 #include "sfCursor.h"
 #include "sfTransform.h"
 #include "sfButton.h"
+// NetworkLC
+#include "NetworkLC.h"
+#include "ServerLC.h"
+#include "ClientLC.h"
 
 using namespace std;
 
