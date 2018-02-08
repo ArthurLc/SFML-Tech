@@ -4,19 +4,12 @@
 
 InGame::InGame()
 {
-	/*server = new ServerLC(IPPROTO_TCP);
-	server->CreateServer();*/
-	
-	client = new ClientLC(IPPROTO_TCP);
-	client->ConnectToServer("133.133.3.182");
-
 	m_pNetButton = new sfNetworkButton("ONLINE", { SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 });
 }
 
 InGame::~InGame()
 {
-	//server->ShutdownServer();
-	client->ShutdownConnection();
+
 }
 
 
@@ -36,9 +29,7 @@ void InGame::EventLoop(sfCursor* _cursor, GAME_STATE* gameState, sf::RenderWindo
 
 void InGame::FixedUpdateLoop()
 {
-	char datas[1 + 6 * sizeof(float)];
-	NetworkButtonToBytes(datas, *m_pNetButton);
-	client->SendMsg(datas);
+	
 }
 
 void InGame::BlitLoop(sf::RenderWindow& _window)

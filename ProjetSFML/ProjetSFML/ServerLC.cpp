@@ -1,15 +1,20 @@
 #include "ServerLC.h"
 
+//Initialization static members
+ServerLC* ServerLC::Instance = nullptr;
+
 
 ServerLC::~ServerLC()
 {
+	ShutdownServer();
 }
 
 
 /*###SERVER###*/
 int ServerLC::CreateServer()
 {
-	isServer = true;
+	Instance = this;
+	IsServer = true;
 
 	//Création de la socket serveur
 	serverSock = socket(result->ai_family, result->ai_socktype, result->ai_protocol);
@@ -118,9 +123,9 @@ int ServerLC::TCP_Protocol(int _sockListID)
 		iTest = recv(clientSockList[_sockListID], recvbuf, recvbuflen, 0);
 		if (iTest > 0) {
 			//Affichage du message de l'autre
-			NetworkLC::mtx_Datas->lock();
+			NetworkLC::Datas_mtx->lock();
 			dataList.insert(DATAS_PAIR(0, recvbuf));
-			NetworkLC::mtx_Datas->unlock();
+			NetworkLC::Datas_mtx->unlock();
 			//std::cout << "Client n°" << _sockListID << ": " << recvbuf << std::endl;
 
 			//Envois de la réponse

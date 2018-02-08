@@ -17,17 +17,30 @@ sfNetworkButton::sfNetworkButton(std::string _sText, sf::Vector2f _pos, sf::Vect
 	m_MsgLoopThread->detach();
 }
 
-
 sfNetworkButton::~sfNetworkButton()
 {
 }
+
+
+void sfNetworkButton::SetPos(sf::Vector2f _pos)
+{
+	sfTransform::SetPos(_pos);
+
+	if (ClientLC::Instance != nullptr)
+	{
+		char datas[1 + 6 * sizeof(float)];
+		NetworkButtonToBytes(datas, *this);
+		ClientLC::Instance->SendMsg(datas);
+	}
+}
+
 
 /*###THREADS###*/
 int sfNetworkButton::ThreadMsgLoop()
 {
 	while (true)
 	{
-		NetworkLC::mtx_Datas->lock();
+		NetworkLC::Datas_mtx->lock();
 		DATAS_LIST tempDatas = NetworkLC::GetDataList();
 		for (DATAS_LIST::iterator ii = tempDatas.begin(); ii != tempDatas.end(); ++ii)
 		{
@@ -38,7 +51,7 @@ int sfNetworkButton::ThreadMsgLoop()
 				break;
 			}
 		}
-		NetworkLC::mtx_Datas->unlock();
+		NetworkLC::Datas_mtx->unlock();
 	}
 	return 0;
 }

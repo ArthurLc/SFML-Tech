@@ -54,8 +54,9 @@ public:
 	~NetworkLC();
 
 	//Informations
-	static bool isServer;
-	static std::mutex* mtx_Datas;           // mutex for critical section
+	static bool IsServer;
+	static PCSTR AdressServer; //Adresse avec laquelle je vais essayer de me connecter
+	static std::mutex* Datas_mtx;           // mutex for critical section
 	inline static DATAS_LIST GetDataList() { return dataList; }
 };
 

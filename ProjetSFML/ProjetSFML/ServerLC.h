@@ -35,5 +35,7 @@ public:
 
 	//Informations
 	inline int GetNumClients() { return clientSockList.size(); }
+
+	static ServerLC* Instance;
 };
 

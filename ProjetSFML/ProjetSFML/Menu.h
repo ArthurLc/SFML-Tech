@@ -8,7 +8,8 @@ private:
 
 	sf::Text credits;
 
-	sfButton* play_Button;
+	sfButton* host_Button;
+	sfButton* join_Button;
 	sfButton* credits_Button;
 
 	bool isCreditsActive;

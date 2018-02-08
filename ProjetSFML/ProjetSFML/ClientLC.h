@@ -11,7 +11,6 @@ class ClientLC : public NetworkLC
 {
 private:
 	SOCKET mySock;
-	PCSTR adressServer = "127.0.0.1"; //Adresse avec laquelle je vais essayer de me connecter
 
 	std::thread* m_serverMsgRecepter;
 
@@ -20,7 +19,7 @@ private:
 	int UDP_ServerMsgRecepter();
 
 public:
-	ClientLC(IPPROTO _protocol) : NetworkLC(_protocol) {};;
+	ClientLC(IPPROTO _protocol) : NetworkLC(_protocol) {};
 	~ClientLC();
 
 	int ConnectToServer(PCSTR _adress);
@@ -28,5 +27,7 @@ public:
 	int SendMsg(char _msg[DEFAULT_BUFLEN]);
 
 	int ShutdownConnection();
+
+	static ClientLC* Instance;
 };
 

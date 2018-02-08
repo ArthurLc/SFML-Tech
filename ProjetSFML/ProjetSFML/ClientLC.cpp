@@ -1,19 +1,24 @@
 #include "ClientLC.h"
 
+//Initialization static members
+ClientLC* ClientLC::Instance = nullptr;
+
 
 ClientLC::~ClientLC()
 {
+	ShutdownConnection();
 }
 
 
 /*###CLIENT###*/
 int ClientLC::ConnectToServer(PCSTR _adress)
 {
-	isServer = false;
+	Instance = this;
+	IsServer = false;
 
-	adressServer = _adress;
+	AdressServer = _adress;
 	// Test adresse serveur et port
-	iTest = getaddrinfo(adressServer, DEFAULT_PORT, &hints, &result);
+	iTest = getaddrinfo(AdressServer, DEFAULT_PORT, &hints, &result);
 	if (iTest != 0) {
 		std::cout << "Error : GetAddrInfo : " << iTest << std::endl;
 		WSACleanup();
@@ -131,9 +136,9 @@ int ClientLC::TCP_ServerMsgRecepter()
 
 		iTest = recv(mySock, recvbuf, recvbuflen, 0); //Reception du Msg
 		if (iTest > 0) {
-			NetworkLC::mtx_Datas->lock();
+			NetworkLC::Datas_mtx->lock();
 			dataList.insert(DATAS_PAIR(0, recvbuf));
-			NetworkLC::mtx_Datas->unlock();
+			NetworkLC::Datas_mtx->unlock();
 			//std::cout << "Client : " << recvbuf << std::endl;
 		}
 		else if (iTest == 0)

@@ -1,5 +1,5 @@
 #pragma once
-class sfInputField
+class sfInputField : public sfButton
 {
 public:
 	sfInputField();

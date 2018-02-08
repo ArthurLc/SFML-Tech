@@ -1,8 +1,9 @@
 #include "stdafx.h"
 
 //Initialization static members
-bool NetworkLC::isServer = false;
-std::mutex* NetworkLC::mtx_Datas = new mutex();
+bool NetworkLC::IsServer = false;
+PCSTR NetworkLC::AdressServer = "127.0.0.1";
+std::mutex* NetworkLC::Datas_mtx = new mutex();
 DATAS_LIST NetworkLC::dataList;
 
 /// Ouverture de la fenêtre
