@@ -14,7 +14,7 @@ InGame::~InGame()
 
 
 
-void InGame::EventLoop(sfCursor* _cursor, GAME_STATE* gameState, sf::RenderWindow& _window)
+void InGame::EventLoop(sfCursor* _cursor, GAME_STATE* gameState, sf::Event& _event, sf::RenderWindow& _window)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
 		m_pNetButton->SetPos({ m_pNetButton->GetPos().x + 1,m_pNetButton->GetPos().y });

@@ -8,12 +8,13 @@ protected:
 	sf::Vector2f mousePos;
 	bool isMouseOnButton;
 	bool isMouseDown;
+	bool isSelected;
 
 	bool OnMousePos(sf::RenderWindow& _window);
 
 public:
 	sfButton();
-	sfButton(std::string _text, sf::Vector2f _pos = { 0,0 }, sf::Vector2f _rot = { 0,0 }, sf::Vector2f _scale = { 1,1 }, std::string _sSpriteFile = "../Datas/ContactButton.png");
+	sfButton(std::string _sText, sf::Vector2f _pos = { 0,0 }, sf::Vector2f _rot = { 0,0 }, sf::Vector2f _scale = { 1,1 }, std::string _sSpriteFile = "../Datas/ContactButton.png");
 	~sfButton();
 
 	inline void SetSprite(sf::Sprite _sprite) { sprite = _sprite; }

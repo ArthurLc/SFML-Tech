@@ -6,9 +6,10 @@ Menu::Menu()
 {
 	credits = CreateNewText("'Event'\n===\n'ProjetSFML' by Arthur Lacour", arial, 24, sf::Color::Black, sf::Color::Red, 0.5f);
 
-	host_Button = new sfButton("HOST", { (SCREEN_WIDTH / 2) - 100, (SCREEN_HEIGHT / 2) - 100 });
-	join_Button = new sfButton("JOIN", { (SCREEN_WIDTH / 2) - 100, SCREEN_HEIGHT / 2 });
-	credits_Button = new sfButton("CREDITS", { (SCREEN_WIDTH / 2) - 100, (SCREEN_HEIGHT / 2) + 100 });
+	host_Button = new sfButton("HOST", { (SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) - 100 });
+	join_Button = new sfButton("JOIN", { (SCREEN_WIDTH / 2) - 200, SCREEN_HEIGHT / 2 });
+	adress_InputField = new sfInputField("127.0.0.1", { (SCREEN_WIDTH / 2) + 200, (SCREEN_HEIGHT / 2) });
+	credits_Button = new sfButton("CREDITS", { (SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) + 100 });
 
 	isCreditsActive = false;
 }
@@ -20,7 +21,7 @@ Menu::~Menu()
 
 
 
-void Menu::EventLoop(sfCursor* _cursor, GAME_STATE* gameState, sf::RenderWindow& _window)
+void Menu::EventLoop(sfCursor* _cursor, GAME_STATE* gameState, sf::Event& _event, sf::RenderWindow& _window)
 {
 	if (host_Button->OnMouseUp(_cursor, _window)) {
 		ServerLC::Instance = new ServerLC(IPPROTO_TCP);
@@ -31,6 +32,9 @@ void Menu::EventLoop(sfCursor* _cursor, GAME_STATE* gameState, sf::RenderWindow&
 		ClientLC::Instance = new ClientLC(IPPROTO_TCP);
 		ClientLC::Instance->ConnectToServer(NetworkLC::AdressServer);
 		*gameState = GAME_STATE::E_Game;
+	}
+	else if (adress_InputField->OnMouseDown(_cursor, _window)) {
+		adress_InputField->SelectField(_event);
 	}
 	else if (credits_Button->OnMouseDown(_cursor, _window)) {
 		isCreditsActive = true;
@@ -55,6 +59,7 @@ void Menu::BlitLoop(sf::RenderWindow& _window)
 	BlitSprite(sprite, { 0,0 }, _window);
 	host_Button->Draw(_window);
 	join_Button->Draw(_window);
+	adress_InputField->Draw(_window);
 	credits_Button->Draw(_window);
 	if(isCreditsActive)
 		BlitText(credits, { credits_Button->GetPos().x, credits_Button->GetPos().y + 125 }, 1, _window);

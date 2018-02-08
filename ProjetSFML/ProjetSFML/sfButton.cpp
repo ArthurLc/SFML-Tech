@@ -44,6 +44,7 @@ bool sfButton::OnMouseDown(sfCursor* cursor, sf::RenderWindow& _window)
 			if (isMouseDown != true)
 			{
 				isMouseDown = true;
+				isSelected = false;
 				cursor->SetCursorToBasic();
 				return true;
 			}
@@ -129,6 +130,7 @@ bool sfButton::OnMousePos(sf::RenderWindow& _window)
 		return true;
 	}
 	
+	isSelected = false;
 	return false;
 }
 

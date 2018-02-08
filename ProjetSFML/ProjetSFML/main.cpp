@@ -17,7 +17,7 @@ void HideConsole()
 
 int main()
 {
-	HideConsole();
+	//HideConsole();
 	GAME_STATE gameState = GAME_STATE::E_Menu;
 	Menu* menu = new Menu();
 	InGame* game = new InGame();
@@ -43,10 +43,10 @@ int main()
 			switch (gameState)
 			{
 			case E_Menu:
-				menu->EventLoop(cursor, &gameState, window);
+				menu->EventLoop(cursor, &gameState, event, window);
 				break;
 			case E_Game:
-				game->EventLoop(cursor, &gameState, window);
+				game->EventLoop(cursor, &gameState, event, window);
 				break;
 			default:
 				break;
