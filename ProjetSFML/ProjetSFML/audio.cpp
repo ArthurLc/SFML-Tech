@@ -1,5 +1,6 @@
 #include "stdafx.h"
 
+
 sf::Music* LoadMusic(char* _sName, float _fVolume, bool _isLoop)
 {
 	sf::Music* tempMusic = new sf::Music();

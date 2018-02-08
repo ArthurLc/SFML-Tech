@@ -1,5 +1,6 @@
 #include "stdafx.h"
 
+
 sfCursor::sfCursor()
 {
 	basicCursor = LoadSprite("../Datas/basicCursor.png", 0);

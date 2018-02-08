@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Menu.h"
 
+
 Menu::Menu()
 {
 	credits = CreateNewText("'Event'\n===\n'ProjetSFML' by Arthur Lacour", arial, 24, sf::Color::Black, sf::Color::Red, 0.5f);

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 
+
 sf::Sprite LoadSprite(string _sFile, bool _bIsCentered)
 {
 	// Déclaration des variables nécessaires a charger un sprite

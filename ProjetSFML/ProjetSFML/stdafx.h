@@ -45,8 +45,9 @@ enum GAME_STATE
 #include "ClientLC.h"
 #include "sfNetworkTransform.h"
 #include "sfNetworkButton.h"
+#include "sfInputField.h"
 
-#include "Converter.h"
+#include "converter.h"
 
 using namespace std;
 

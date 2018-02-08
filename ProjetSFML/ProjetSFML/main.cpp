@@ -1,14 +1,14 @@
+#include "stdafx.h"
+#include "Menu.h"
+#include "InGame.h"
+#include <Windows.h>
+
 /*
 * @Arthur Lacour
 * @main.cpp
 * @02/12/2017
 * @Main loop for the game.
 */
-
-#include "stdafx.h"
-#include "Menu.h"
-#include "InGame.h"
-#include <Windows.h>
 
 void HideConsole()
 {

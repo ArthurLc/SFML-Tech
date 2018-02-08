@@ -163,7 +163,7 @@
   <ItemGroup>
     <ClInclude Include="audio.h" />
     <ClInclude Include="ClientLC.h" />
-    <ClInclude Include="Converter.h" />
+    <ClInclude Include="converter.h" />
     <ClInclude Include="InGame.h" />
     <ClInclude Include="math.h" />
     <ClInclude Include="Menu.h" />
@@ -171,6 +171,7 @@
     <ClInclude Include="ServerLC.h" />
     <ClInclude Include="sfButton.h" />
     <ClInclude Include="sfCursor.h" />
+    <ClInclude Include="sfInputField.h" />
     <ClInclude Include="sfNetworkButton.h" />
     <ClInclude Include="sfNetworkTransform.h" />
     <ClInclude Include="sprite.h" />
@@ -183,7 +184,7 @@
   <ItemGroup>
     <ClCompile Include="audio.cpp" />
     <ClCompile Include="ClientLC.cpp" />
-    <ClCompile Include="Converter.cpp" />
+    <ClCompile Include="converter.cpp" />
     <ClCompile Include="InGame.cpp" />
     <ClCompile Include="math.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -192,6 +193,7 @@
     <ClCompile Include="sfButton.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="sfCursor.cpp" />
+    <ClCompile Include="sfInputField.cpp" />
     <ClCompile Include="sfNetworkButton.cpp" />
     <ClCompile Include="sfNetworkTransform.cpp" />
     <ClCompile Include="sprite.cpp" />

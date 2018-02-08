@@ -1,7 +1,6 @@
 #include "stdafx.h"
 
 
-
 sfTransform::sfTransform()
 {
 	pos = { 0,0 };

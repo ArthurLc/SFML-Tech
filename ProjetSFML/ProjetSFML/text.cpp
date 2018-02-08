@@ -1,5 +1,6 @@
 #include "stdafx.h"
 
+
 sf::Text CreateNewText(std::string _sText, std::string _sFont, int _iCharacterSize, sf::Color _fillColor, sf::Color _outlineColor, float _outlineThickness)
 {
 	// Déclaration des variables nécessaires a charger un sprite

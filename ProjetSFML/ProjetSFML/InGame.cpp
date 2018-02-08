@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "InGame.h"
 
+
 InGame::InGame()
 {
 	/*server = new ServerLC(IPPROTO_TCP);

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 
+
 void NetworkTransformToBytes(char bytes_temp[1 + 6 * sizeof(float)], sfNetworkTransform _tr)
 {
 	char datas[1 + 6 * sizeof(float)];

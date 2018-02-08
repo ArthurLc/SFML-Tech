@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include "NetworkLC.h"
 
 //Initialization static members
 bool NetworkLC::isServer = false;

@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include "sfNetworkButton.h"
 
 
 sfNetworkButton::sfNetworkButton(std::string _sText, sf::Vector2f _pos, sf::Vector2f _rot, sf::Vector2f _scale, std::string _sSpriteFile)
