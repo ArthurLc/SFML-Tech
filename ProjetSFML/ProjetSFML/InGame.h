@@ -7,7 +7,7 @@ private:
 	ServerLC * server;
 	ClientLC* client;
 
-	sf::Sprite sprite;
+	sfNetworkButton* m_pNetButton;
 
 public:
 	InGame();

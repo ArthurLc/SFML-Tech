@@ -1,6 +1,10 @@
+#include "stdafx.h"
 #include "NetworkLC.h"
 
-
+//Initialization static members
+bool NetworkLC::isServer = false;
+std::mutex* NetworkLC::mtx_Datas = new mutex();
+DATAS_LIST NetworkLC::dataList;
 
 /// Ouverture de la fenêtre
 int NetworkLC::StartupWin()

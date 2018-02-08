@@ -10,6 +10,8 @@ ServerLC::~ServerLC()
 /*###SERVER###*/
 int ServerLC::CreateServer()
 {
+	isServer = true;
+
 	//Création de la socket serveur
 	serverSock = socket(result->ai_family, result->ai_socktype, result->ai_protocol);
 	if (serverSock == SOCKET_ERROR) {
@@ -117,13 +119,16 @@ int ServerLC::TCP_Protocol(int _sockListID)
 		iTest = recv(clientSockList[_sockListID], recvbuf, recvbuflen, 0);
 		if (iTest > 0) {
 			//Affichage du message de l'autre
-			std::cout << "Client n°" << _sockListID << ": " << recvbuf << std::endl;
+			NetworkLC::mtx_Datas->lock();
+			dataList.insert(DATAS_PAIR(0, recvbuf));
+			NetworkLC::mtx_Datas->unlock();
+			//std::cout << "Client n°" << _sockListID << ": " << recvbuf << std::endl;
 
 			//Envois de la réponse
 			memcpy(msg, recvbuf, sizeof(recvbuf));
 			for (SOCKET_LIST::iterator it = clientSockList.begin(); it != clientSockList.end(); ++it)
 			{
-				iTestSend = send(clientSockList[it->first], msg, (int)strlen(msg), 0);
+				iTestSend = send(clientSockList[it->first], msg, /*(int)strlen(msg)*/recvbuflen, 0);
 				if (iTestSend == SOCKET_ERROR) {
 					std::cout << "Echec de l'envois : " << WSAGetLastError() << std::endl;
 				}

@@ -1,7 +1,5 @@
 #pragma once
 #include "NetworkLC.h"
-#include <map>
-#include <list>
 
 /*
 * @ArthurLacour
@@ -35,6 +33,7 @@ public:
 
 	int ShutdownServer();
 
+	//Informations
 	inline int GetNumClients() { return clientSockList.size(); }
 };
 

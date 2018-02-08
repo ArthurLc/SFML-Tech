@@ -2,6 +2,18 @@
 #include "sfCursor.h"
 
 
+sfButton::sfButton()
+{
+	text = CreateNewText("NewButton");
+	sprite = LoadSprite("../Datas/ContactButton.png", 1);
+
+	SetPos({ 0,0 });
+	SetRot({ 0,0 });
+	SetScale({ 1,1 });
+
+	isMouseOnButton = false;
+	isMouseDown = false;
+}
 
 sfButton::sfButton(std::string _sText, sf::Vector2f _pos, sf::Vector2f _rot, sf::Vector2f _scale, std::string _sSpriteFile)
 {

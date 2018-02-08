@@ -1,7 +1,7 @@
 #pragma once
 class sfButton : public sfTransform
 {
-private:
+protected:
 	sf::Sprite sprite;
 	sf::Text text;
 
@@ -12,6 +12,7 @@ private:
 	bool OnMousePos(sf::RenderWindow& _window);
 
 public:
+	sfButton();
 	sfButton(std::string _text, sf::Vector2f _pos = { 0,0 }, sf::Vector2f _rot = { 0,0 }, sf::Vector2f _scale = { 1,1 }, std::string _sSpriteFile = "../Datas/ContactButton.png");
 	~sfButton();
 

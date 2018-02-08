@@ -17,7 +17,7 @@ void HideConsole()
 
 int main()
 {
-	//HideConsole();
+	HideConsole();
 	GAME_STATE gameState = GAME_STATE::E_Menu;
 	Menu* menu = new Menu();
 	InGame* game = new InGame();

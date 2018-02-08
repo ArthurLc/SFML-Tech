@@ -93,6 +93,15 @@
     <ClInclude Include="ServerLC.h">
       <Filter>Fichiers d%27en-tête\Engine\NetworkLC</Filter>
     </ClInclude>
+    <ClInclude Include="Converter.h">
+      <Filter>Fichiers d%27en-tête\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="sfNetworkTransform.h">
+      <Filter>Fichiers d%27en-tête\Engine\NetworkLC</Filter>
+    </ClInclude>
+    <ClInclude Include="sfNetworkButton.h">
+      <Filter>Fichiers d%27en-tête\Engine\NetworkLC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -138,6 +147,15 @@
       <Filter>Fichiers sources\Engine\NetworkLC</Filter>
     </ClCompile>
     <ClCompile Include="ServerLC.cpp">
+      <Filter>Fichiers sources\Engine\NetworkLC</Filter>
+    </ClCompile>
+    <ClCompile Include="Converter.cpp">
+      <Filter>Fichiers sources\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="sfNetworkTransform.cpp">
+      <Filter>Fichiers sources\Engine\NetworkLC</Filter>
+    </ClCompile>
+    <ClCompile Include="sfNetworkButton.cpp">
       <Filter>Fichiers sources\Engine\NetworkLC</Filter>
     </ClCompile>
   </ItemGroup>

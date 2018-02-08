@@ -9,6 +9,8 @@ ClientLC::~ClientLC()
 /*###CLIENT###*/
 int ClientLC::ConnectToServer(PCSTR _adress)
 {
+	isServer = false;
+
 	adressServer = _adress;
 	// Test adresse serveur et port
 	iTest = getaddrinfo(adressServer, DEFAULT_PORT, &hints, &result);
@@ -62,11 +64,8 @@ int ClientLC::SendMsg(char _msg[DEFAULT_BUFLEN])
 	switch (result->ai_socktype)
 	{
 	case SOCK_STREAM:
-		//std::cout << "Moi : ";
-		//std::cin.getline(msg, DEFAULT_BUFLEN);
-
 		//Envois d'un message
-		iTest = send(mySock, _msg, (int)strlen(_msg), 0);
+		iTest = send(mySock, _msg, /*(int)strlen(_msg)*/recvbuflen, 0);
 		if (iTest == SOCKET_ERROR) {
 			std::cout << "Error : " << WSAGetLastError() << std::endl;
 			closesocket(mySock);
@@ -131,8 +130,12 @@ int ClientLC::TCP_ServerMsgRecepter()
 			recvbuf[i] = '\0';
 
 		iTest = recv(mySock, recvbuf, recvbuflen, 0); //Reception du Msg
-		if (iTest > 0)
-			std::cout << "Client : " << recvbuf << std::endl;
+		if (iTest > 0) {
+			NetworkLC::mtx_Datas->lock();
+			dataList.insert(DATAS_PAIR(0, recvbuf));
+			NetworkLC::mtx_Datas->unlock();
+			//std::cout << "Client : " << recvbuf << std::endl;
+		}
 		else if (iTest == 0)
 			std::cout << "===" << std::endl << "Connexion ferme." << std::endl;
 		else
@@ -156,5 +159,7 @@ int ClientLC::UDP_ServerMsgRecepter()
 		WSACleanup();
 		return 1;
 	}
+
+	return 0;
 }
 /*#############*/
