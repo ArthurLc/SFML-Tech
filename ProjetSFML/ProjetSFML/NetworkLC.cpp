@@ -5,6 +5,7 @@ bool NetworkLC::IsServer = false;
 PCSTR NetworkLC::AdressServer = "127.0.0.1";
 std::mutex* NetworkLC::Datas_mtx = new mutex();
 DATAS_LIST NetworkLC::dataList;
+GO_LIST NetworkLC::goList;
 
 /// Ouverture de la fenêtre
 int NetworkLC::StartupWin()

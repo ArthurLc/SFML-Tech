@@ -6,14 +6,18 @@
 #include <iomanip>
 #include <map>
 #include <list>
+#include <vector>
 #include <thread>
 #include <mutex>
+#include "NetworkIdentity.h"
 
 #define DEFAULT_PORT "48563"
 #define DEFAULT_BUFLEN 25
 
 typedef public std::multimap<int, char*> DATAS_LIST;
 typedef public std::pair<int, char*> DATAS_PAIR;
+typedef public std::map<int, NetworkIdentity*> GO_LIST;
+typedef public std::pair<int, NetworkIdentity*> GO_PAIR;
 
 /*
 * @ArthurLacour
@@ -27,6 +31,13 @@ class NetworkLC
 	{
 		All
 	};
+private:
+	DATAS_LIST tempDatas;
+	GO_LIST tempGo;
+
+	// THREADS
+	std::thread* m_MsgLoopThread;
+	int ThreadMsgLoop();
 
 protected:
 	/*===PARAMETERS===*/
@@ -35,7 +46,7 @@ protected:
 	WORD wVersionRequested = MAKEWORD(2, 2);
 	// Socket
 	struct addrinfo *result = NULL, *ptr = NULL, hints; //Structure nécessaire à la connexion d'un serveur
-	// Messages
+														// Messages
 	int recvbuflen = DEFAULT_BUFLEN;
 	char msg[DEFAULT_BUFLEN]; //Msg de confirmation
 	char recvbuf[DEFAULT_BUFLEN];
@@ -45,6 +56,7 @@ protected:
 	int server_length;
 	time_t current_time;
 	static DATAS_LIST dataList;
+	static GO_LIST goList;
 	/*================*/
 
 	int StartupWin();
@@ -58,5 +70,7 @@ public:
 	static PCSTR AdressServer; //Adresse avec laquelle je vais essayer de me connecter
 	static std::mutex* Datas_mtx;           // mutex for critical section
 	inline static DATAS_LIST GetDataList() { return dataList; }
+	inline static GO_LIST GetGOList() { return goList; }
+	inline static void AddGO(NetworkIdentity* _netID) { goList.insert(GO_PAIR(goList.size(), _netID)); }
 };
 

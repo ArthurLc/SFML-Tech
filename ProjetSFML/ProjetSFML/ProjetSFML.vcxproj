@@ -167,6 +167,7 @@
     <ClInclude Include="InGame.h" />
     <ClInclude Include="math.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="NetworkIdentity.h" />
     <ClInclude Include="NetworkLC.h" />
     <ClInclude Include="ServerLC.h" />
     <ClInclude Include="sfButton.h" />
@@ -188,6 +189,7 @@
     <ClCompile Include="InGame.cpp" />
     <ClCompile Include="math.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="NetworkIdentity.cpp" />
     <ClCompile Include="NetworkLC.cpp" />
     <ClCompile Include="ServerLC.cpp" />
     <ClCompile Include="sfButton.cpp" />

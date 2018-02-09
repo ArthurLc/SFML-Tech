@@ -1,8 +1,8 @@
 #pragma once
-class sfNetworkButton : public sfButton
+class sfNetworkButton : public NetworkIdentity, public sfButton
 {
 private:
-	char networkID = 1;
+	char networkID = -1;
 
 	std::thread* m_MsgLoopThread;
 
@@ -10,7 +10,8 @@ private:
 	int ThreadMsgLoop();
 
 public:
-	sfNetworkButton(std::string _text, sf::Vector2f _pos = { 0,0 }, sf::Vector2f _rot = { 0,0 }, sf::Vector2f _scale = { 1,1 }, std::string _sSpriteFile = "../Datas/ContactButton.png");
+	sfNetworkButton();
+	sfNetworkButton(std::string _text, NetworkUpdateMode _updateMode = NetworkUpdateMode::OnChange, sf::Vector2f _pos = { 0,0 }, sf::Vector2f _rot = { 0,0 }, sf::Vector2f _scale = { 1,1 }, std::string _sSpriteFile = "../Datas/ContactButton.png");
 	~sfNetworkButton();
 
 	void SetPos(sf::Vector2f _pos);

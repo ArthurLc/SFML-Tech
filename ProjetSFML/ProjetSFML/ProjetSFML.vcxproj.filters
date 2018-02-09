@@ -105,6 +105,9 @@
     <ClInclude Include="converter.h">
       <Filter>Fichiers d%27en-tête\ToolsSFML</Filter>
     </ClInclude>
+    <ClInclude Include="NetworkIdentity.h">
+      <Filter>Fichiers d%27en-tête\Engine\NetworkLC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -163,6 +166,9 @@
     </ClCompile>
     <ClCompile Include="converter.cpp">
       <Filter>Fichiers sources\ToolsSFML</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkIdentity.cpp">
+      <Filter>Fichiers sources\Engine\NetworkLC</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
