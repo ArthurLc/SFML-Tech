@@ -82,14 +82,18 @@ int sfNetworkButton::ThreadMsgLoop()
 	{
 		NetworkLC::Datas_mtx->lock();
 		DATAS_LIST tempDatas = NetworkLC::GetDataList();
-		for (DATAS_LIST::iterator ii = tempDatas.begin(); ii != tempDatas.end(); ++ii)
+		printf("NumDatas: %d\n", tempDatas.size());
+		DATAS_LIST::iterator ii;
+		for (ii = tempDatas.begin(); ii != tempDatas.end(); ++ii)
 		{
 			//TODO: Pourquoi faire se test fait crash ???
 			if ((char)(*ii).second[0] == GetNetworkID()) {
 				BytesToNetworkButton(this, (*ii).second);
-				tempDatas.erase(ii);
 				break;
 			}
+		}
+		if (ii != tempDatas.end()) {
+			tempDatas.erase(ii);
 		}
 		NetworkLC::Datas_mtx->unlock();
 	}

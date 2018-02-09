@@ -5,7 +5,7 @@
 InGame::InGame()
 {
 	m_pNetButton = new sfNetworkButton("ONLINE", NetworkUpdateMode::OnChange, { SCREEN_WIDTH / 2, (SCREEN_HEIGHT / 2) - 50 });
-	m_pNetButton2 = new sfNetworkButton("ONLINE_2", NetworkUpdateMode::OnChange, { SCREEN_WIDTH / 2, (SCREEN_HEIGHT / 2) + 50 });
+	m_pNetButton2 = new sfNetworkButton("ONLINE2", NetworkUpdateMode::OnChange, { SCREEN_WIDTH / 2, (SCREEN_HEIGHT / 2) + 50 });
 }
 
 InGame::~InGame()
