@@ -8,6 +8,7 @@ private:
 	ClientLC* client;
 
 	sfNetworkButton* m_pNetButton;
+	sfNetworkButton* m_pNetButton2;
 
 public:
 	InGame();
