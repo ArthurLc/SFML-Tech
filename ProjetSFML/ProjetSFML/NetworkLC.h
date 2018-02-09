@@ -32,12 +32,12 @@ class NetworkLC
 		All
 	};
 private:
-	DATAS_LIST tempDatas;
-	GO_LIST tempGo;
+	//DATAS_LIST tempDatas;
+	//GO_LIST tempGo;
 
 	// THREADS
-	/*std::thread* m_MsgLoopThread;
-	int ThreadMsgLoop();*/
+	std::thread* m_MsgLoopThread;
+	int ThreadMsgLoop();
 
 protected:
 	/*===PARAMETERS===*/

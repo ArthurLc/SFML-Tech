@@ -1,12 +1,6 @@
 #pragma once
 class sfNetworkButton : public NetworkIdentity, public sfButton
 {
-private:
-	std::thread* m_MsgLoopThread;
-
-	// THREADS
-	int ThreadMsgLoop();
-
 public:
 	sfNetworkButton();
 	sfNetworkButton(std::string _text, NetworkUpdateMode _updateMode = NetworkUpdateMode::OnChange, sf::Vector2f _pos = { 0,0 }, sf::Vector2f _rot = { 0,0 }, sf::Vector2f _scale = { 1,1 }, std::string _sSpriteFile = "../Datas/ContactButton.png");

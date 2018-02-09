@@ -13,10 +13,8 @@ sfNetworkButton::sfNetworkButton()
 	isMouseOnButton = false;
 	isMouseDown = false;
 
+	obj = this;
 	updateMode = NetworkUpdateMode::OnChange;
-
-	m_MsgLoopThread = new std::thread(&sfNetworkButton::ThreadMsgLoop, this);
-	m_MsgLoopThread->detach();
 }
 
 sfNetworkButton::sfNetworkButton(std::string _sText, NetworkUpdateMode _updateMode, sf::Vector2f _pos, sf::Vector2f _rot, sf::Vector2f _scale, std::string _sSpriteFile)
@@ -31,10 +29,8 @@ sfNetworkButton::sfNetworkButton(std::string _sText, NetworkUpdateMode _updateMo
 	isMouseOnButton = false;
 	isMouseDown = false;
 
+	obj = this;
 	updateMode = _updateMode;
-
-	m_MsgLoopThread = new std::thread(&sfNetworkButton::ThreadMsgLoop, this);
-	m_MsgLoopThread->detach();
 }
 
 sfNetworkButton::~sfNetworkButton()
@@ -73,30 +69,3 @@ void sfNetworkButton::SetPos(sf::Vector2f _pos)
 		break;
 	}
 }
-
-
-/*###THREADS###*/
-int sfNetworkButton::ThreadMsgLoop()
-{
-	while (true)
-	{
-		NetworkLC::Datas_mtx->lock();
-		DATAS_LIST tempDatas = NetworkLC::GetDataList();
-		printf("NumDatas: %d\n", tempDatas.size());
-		DATAS_LIST::iterator ii;
-		for (ii = tempDatas.begin(); ii != tempDatas.end(); ++ii)
-		{
-			//TODO: Pourquoi faire se test fait crash ???
-			if ((char)(*ii).second[0] == GetNetworkID()) {
-				BytesToNetworkButton(this, (*ii).second);
-				break;
-			}
-		}
-		if (ii != tempDatas.end()) {
-			tempDatas.erase(ii);
-		}
-		NetworkLC::Datas_mtx->unlock();
-	}
-	return 0;
-}
-/*#############*/ 
