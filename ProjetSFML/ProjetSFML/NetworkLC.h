@@ -14,10 +14,10 @@
 #define DEFAULT_PORT "48563"
 #define DEFAULT_BUFLEN 25
 
-typedef public std::multimap<int, char*> DATAS_LIST;
-typedef public std::pair<int, char*> DATAS_PAIR;
-typedef public std::map<int, NetworkIdentity*> GO_LIST;
-typedef public std::pair<int, NetworkIdentity*> GO_PAIR;
+typedef public std::multimap<char, char*> DATAS_LIST;
+typedef public std::pair<char, char*> DATAS_PAIR;
+typedef public std::map<char, NetworkIdentity*> GO_LIST;
+typedef public std::pair<char, NetworkIdentity*> GO_PAIR;
 
 /*
 * @ArthurLacour
@@ -36,8 +36,8 @@ private:
 	GO_LIST tempGo;
 
 	// THREADS
-	std::thread* m_MsgLoopThread;
-	int ThreadMsgLoop();
+	/*std::thread* m_MsgLoopThread;
+	int ThreadMsgLoop();*/
 
 protected:
 	/*===PARAMETERS===*/
@@ -71,6 +71,6 @@ public:
 	static std::mutex* Datas_mtx;           // mutex for critical section
 	inline static DATAS_LIST GetDataList() { return dataList; }
 	inline static GO_LIST GetGOList() { return goList; }
-	inline static void AddGO(NetworkIdentity* _netID) { goList.insert(GO_PAIR(goList.size(), _netID)); }
+	inline static void AddGO(NetworkIdentity* _netID) { goList.insert(GO_PAIR((char)goList.size(), _netID)); }
 };
 

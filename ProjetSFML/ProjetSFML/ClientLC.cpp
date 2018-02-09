@@ -137,7 +137,7 @@ int ClientLC::TCP_ServerMsgRecepter()
 		iTest = recv(mySock, recvbuf, recvbuflen, 0); //Reception du Msg
 		if (iTest > 0) {
 			NetworkLC::Datas_mtx->lock();
-			dataList.insert(DATAS_PAIR(0, recvbuf));
+			dataList.insert(DATAS_PAIR(recvbuf[0], recvbuf));
 			NetworkLC::Datas_mtx->unlock();
 			//std::cout << "Client : " << recvbuf << std::endl;
 		}

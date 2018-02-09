@@ -2,8 +2,6 @@
 class sfNetworkButton : public NetworkIdentity, public sfButton
 {
 private:
-	char networkID = -1;
-
 	std::thread* m_MsgLoopThread;
 
 	// THREADS
@@ -17,7 +15,5 @@ public:
 	void SetPos(sf::Vector2f _pos);
 	//virtual void SetRot(sf::Vector2f _rot) { rot = _rot; }
 	//virtual void SetScale(sf::Vector2f _scale) { scale = _scale; }
-
-	inline char GetNetworkID() { return networkID; }
 };
 

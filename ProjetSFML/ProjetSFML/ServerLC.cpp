@@ -124,7 +124,7 @@ int ServerLC::TCP_Protocol(int _sockListID)
 		if (iTest > 0) {
 			//Affichage du message de l'autre
 			NetworkLC::Datas_mtx->lock();
-			dataList.insert(DATAS_PAIR(0, recvbuf));
+			dataList.insert(DATAS_PAIR(recvbuf[0], recvbuf));
 			NetworkLC::Datas_mtx->unlock();
 			//std::cout << "Client n°" << _sockListID << ": " << recvbuf << std::endl;
 

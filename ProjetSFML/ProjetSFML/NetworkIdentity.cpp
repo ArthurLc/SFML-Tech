@@ -10,7 +10,9 @@ NetworkIdentity::NetworkIdentity()
 {
 	if (NetworkLC::GetGOList().size() < 255)
 	{ //TODO: Solution, avoir plus de 255 objets.
-		networkID = NetworkLC::GetGOList().size();
+		char newID;
+		NetworkLC::GetGOList().count(newID);
+		networkID = newID;
 		NetworkLC::AddGO(this);
 	}
 	else
