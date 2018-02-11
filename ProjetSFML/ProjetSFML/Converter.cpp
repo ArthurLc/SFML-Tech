@@ -90,17 +90,17 @@ void BytesToNetworkButton(sfNetworkButton* _button, char bytes_temp[1 + 6 * size
 	tempV2.x = *((float*)floatDatareader);
 	floatDatareader += sizeof(float);
 	tempV2.y = *((float*)floatDatareader);
-	_button->SetPos(tempV2);
+	_button->sfTransform::SetPos(tempV2);
 
 	floatDatareader += sizeof(float);
 	tempV2.x = *((float*)floatDatareader);
 	floatDatareader += sizeof(float);
 	tempV2.y = *((float*)floatDatareader);
-	_button->SetRot(tempV2);
+	_button->sfTransform::SetRot(tempV2);
 
 	floatDatareader += sizeof(float);
 	tempV2.x = *((float*)floatDatareader);
 	floatDatareader += sizeof(float);
 	tempV2.y = *((float*)floatDatareader);
-	_button->SetScale(tempV2);
+	_button->sfTransform::SetScale(tempV2);
 }

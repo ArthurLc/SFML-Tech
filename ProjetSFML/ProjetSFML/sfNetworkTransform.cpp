@@ -10,6 +10,7 @@ sfNetworkTransform::sfNetworkTransform()
 
 sfNetworkTransform::~sfNetworkTransform()
 {
+	m_MsgLoopThread->~thread();
 }
 
 /*###THREADS###*/

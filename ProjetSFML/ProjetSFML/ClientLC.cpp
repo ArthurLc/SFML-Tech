@@ -7,6 +7,7 @@ ClientLC* ClientLC::Instance = nullptr;
 ClientLC::~ClientLC()
 {
 	ShutdownConnection();
+	m_serverMsgRecepter->~thread();
 }
 
 
@@ -137,7 +138,9 @@ int ClientLC::TCP_ServerMsgRecepter()
 		iTest = recv(mySock, recvbuf, recvbuflen, 0); //Reception du Msg
 		if (iTest > 0) {
 			NetworkLC::Datas_mtx->lock();
-			dataList.insert(DATAS_PAIR(recvbuf[0], recvbuf));
+			char* newData = new char[sizeof(recvbuf)];
+			memcpy(newData, recvbuf, sizeof(recvbuf));
+			dataList.insert(DATAS_PAIR(recvbuf[0], newData));
 			NetworkLC::Datas_mtx->unlock();
 			//std::cout << "Client : " << recvbuf << std::endl;
 		}

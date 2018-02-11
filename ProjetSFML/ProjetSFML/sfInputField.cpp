@@ -35,6 +35,7 @@ sfInputField::sfInputField(std::string _sText, sf::Vector2f _pos, sf::Vector2f _
 
 sfInputField::~sfInputField()
 {
+	inputThread->~thread();
 }
 
 

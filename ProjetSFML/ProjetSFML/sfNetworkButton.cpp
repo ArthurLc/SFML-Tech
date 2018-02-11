@@ -13,6 +13,7 @@ sfNetworkButton::sfNetworkButton()
 	isMouseOnButton = false;
 	isMouseDown = false;
 
+	//objType.reset(this);
 	obj = this;
 	updateMode = NetworkUpdateMode::OnChange;
 }
@@ -29,6 +30,7 @@ sfNetworkButton::sfNetworkButton(std::string _sText, NetworkUpdateMode _updateMo
 	isMouseOnButton = false;
 	isMouseDown = false;
 
+	//objType.reset(this);
 	obj = this;
 	updateMode = _updateMode;
 }

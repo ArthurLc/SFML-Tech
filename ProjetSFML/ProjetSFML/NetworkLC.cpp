@@ -66,6 +66,7 @@ NetworkLC::NetworkLC(IPPROTO _protocol)
 
 NetworkLC::~NetworkLC()
 {
+	m_MsgLoopThread->~thread();
 }
 
 
@@ -75,25 +76,25 @@ int NetworkLC::ThreadMsgLoop()
 	while (true)
 	{
 		NetworkLC::Datas_mtx->lock();
-		DATAS_LIST tempDatas = NetworkLC::GetDataList();
-		GO_LIST tempGo = NetworkLC::GetGOList();
-		printf("NumDatas: %d\n", tempDatas.size());
+		printf("NumDatas: %d\n", dataList.size());
 		//printf("ObjOnList: %d\n", tempGo.size());
 
-		for (GO_LIST::iterator go = tempGo.begin(); go != tempGo.end(); ++go) //Je parcours tous les objets Network de la scène
+		for (GO_LIST::iterator go = goList.begin(); go != goList.end(); ++go) //Je parcours tous les objets Network de la scène
 		{
 			DATAS_LIST::iterator ii;
-			for (ii = tempDatas.begin(); ii != tempDatas.end(); ++ii)
+			for (ii = dataList.begin(); ii != dataList.end(); ++ii)
 			{
-				if ((*ii).second[0] == (*go).second->GetNetworkID()) //Si le type du message est le miens (Exemple: "sfNetworkButton")
+				if ((char)(*ii).first == (char)(*go).second->GetNetworkID()) //Si l'ID du message est le même que celui de l'objet.
 				{
-					//void* objType = (*go).second.GetObj();
-					BytesToNetworkButton((sfNetworkButton*)((*go).second->GetObj()), (*ii).second);
-					break; //Break de la boucle des messages pour cet objet !
+					/*if (sfNetworkButton* net = dynamic_cast<sfNetworkButton*>((*go).second->GetObjType())) {
+						BytesToNetworkButton((sfNetworkButton*)((*go).second->GetObjType()), (*ii).second);*/
+						BytesToNetworkButton((sfNetworkButton*)((*go).second->GetObj()), (*ii).second);
+					    break; //Break de la boucle des messages pour cet objet !
+					//}
 				}
 			}
-			if (tempDatas.size() > 0 && ii != tempDatas.end()) {
-				//tempDatas.erase(ii);
+			if (dataList.size() > 0 && ii != dataList.end()) {
+				dataList.erase(ii);
 			}
 		}
 		NetworkLC::Datas_mtx->unlock();
