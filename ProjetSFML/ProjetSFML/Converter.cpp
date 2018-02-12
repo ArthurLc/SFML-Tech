@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 
-void NetworkTransformToBytes(char bytes_temp[1 + 6 * sizeof(float)], sfNetworkTransform _tr)
+char* NetworkTransformToBytes(sfNetworkTransform _tr)
 {
 	char datas[1 + 6 * sizeof(float)];
 	char* floatDatareader = datas;
@@ -27,33 +27,35 @@ void NetworkTransformToBytes(char bytes_temp[1 + 6 * sizeof(float)], sfNetworkTr
 	tempFloat = _tr.GetScale().y;
 	memcpy(floatDatareader, &tempFloat, sizeof(float));
 
-	memcpy(bytes_temp, &datas, 1 + 6 * sizeof(float));
+	return datas;
 }
 void BytesToNetworkTransform(sfNetworkTransform* _tr, char bytes_temp[1 + 6 * sizeof(float)])
 {
 	char* floatDatareader = bytes_temp;
 	sf::Vector2f tempV2;
 
+	_tr->NetworkIdentity::Obj_mtx->lock();
 	floatDatareader += sizeof(char);
 	tempV2.x = *((float*)floatDatareader);
 	floatDatareader += sizeof(float);
 	tempV2.y = *((float*)floatDatareader);
-	_tr->SetPos(tempV2);
+	_tr->sfTransform::SetPos(tempV2);
 
 	floatDatareader += sizeof(float);
 	tempV2.x = *((float*)floatDatareader);
 	floatDatareader += sizeof(float);
 	tempV2.y = *((float*)floatDatareader);
-	_tr->SetRot(tempV2);
+	_tr->sfTransform::SetRot(tempV2);
 
 	floatDatareader += sizeof(float);
 	tempV2.x = *((float*)floatDatareader);
 	floatDatareader += sizeof(float);
 	tempV2.y = *((float*)floatDatareader);
-	_tr->SetScale(tempV2);
+	_tr->sfTransform::SetScale(tempV2);
+	_tr->NetworkIdentity::Obj_mtx->unlock();
 }
 
-void NetworkButtonToBytes(char bytes_temp[1 + 6 * sizeof(float)], sfNetworkButton _button)
+char* NetworkButtonToBytes(sfNetworkButton _button)
 {
 	char datas[1 + 6 * sizeof(float)];
 	char* floatDatareader = datas;
@@ -79,28 +81,30 @@ void NetworkButtonToBytes(char bytes_temp[1 + 6 * sizeof(float)], sfNetworkButto
 	tempFloat = _button.GetScale().y;
 	memcpy(floatDatareader, &tempFloat, sizeof(float));
 
-	memcpy(bytes_temp, &datas, 1 + 6 * sizeof(float));
+	return datas;
 }
 void BytesToNetworkButton(sfNetworkButton* _button, char bytes_temp[1 + 6 * sizeof(float)])
 {
 	char* floatDatareader = bytes_temp;
 	sf::Vector2f tempV2;
 
+	_button->NetworkIdentity::Obj_mtx->lock();
 	floatDatareader += sizeof(char);
 	tempV2.x = *((float*)floatDatareader);
 	floatDatareader += sizeof(float);
 	tempV2.y = *((float*)floatDatareader);
-	_button->SetPos(tempV2);
+	_button->sfTransform::SetPos(tempV2);
 
 	floatDatareader += sizeof(float);
 	tempV2.x = *((float*)floatDatareader);
 	floatDatareader += sizeof(float);
 	tempV2.y = *((float*)floatDatareader);
-	_button->SetRot(tempV2);
+	_button->sfTransform::SetRot(tempV2);
 
 	floatDatareader += sizeof(float);
 	tempV2.x = *((float*)floatDatareader);
 	floatDatareader += sizeof(float);
 	tempV2.y = *((float*)floatDatareader);
-	_button->SetScale(tempV2);
+	_button->sfTransform::SetScale(tempV2);
+	_button->NetworkIdentity::Obj_mtx->unlock();
 }

@@ -69,7 +69,6 @@ public:
 	static bool IsServer;
 	static PCSTR AdressServer; //Adresse avec laquelle je vais essayer de me connecter
 	static std::mutex* Datas_mtx;           // mutex for critical section
-	inline static DATAS_LIST GetDataList() { return dataList; }
 	inline static GO_LIST GetGOList() { return goList; }
 	inline static void AddGO(NetworkIdentity* _netID) { goList.insert(GO_PAIR((char)goList.size(), _netID)); }
 };

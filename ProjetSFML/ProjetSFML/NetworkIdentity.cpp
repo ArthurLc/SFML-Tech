@@ -1,13 +1,11 @@
-#include "NetworkLC.h"
-#include "NetworkIdentity.h"
-#include <iostream>
+#include "stdafx.h"
 #include <thread>
-#include <list>
-#include <vector>
 
 
 NetworkIdentity::NetworkIdentity()
 {
+	Obj_mtx = new mutex();
+
 	if (NetworkLC::GetGOList().size() < 255)
 	{ //TODO: Solution, avoir plus de 255 objets.
 		NetworkLC::AddGO(this);

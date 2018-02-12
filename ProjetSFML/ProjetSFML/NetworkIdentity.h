@@ -21,5 +21,6 @@ protected:
 public:
 	inline virtual char GetNetworkID() const { return networkID; }
 	inline virtual void* GetObj() const { return obj; }
+	std::mutex* Obj_mtx;           // mutex for critical section
 };
 

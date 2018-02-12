@@ -65,6 +65,43 @@ int ServerLC::CreateServer()
 	return 0;
 }
 
+int ServerLC::SendMsg(char _msg[DEFAULT_BUFLEN])
+{
+	switch (result->ai_socktype)
+	{
+	case SOCK_STREAM:
+		//Envois d'un message
+		for (SOCKET_LIST::iterator it = clientSockList.begin(); it != clientSockList.end(); ++it)
+		{
+			//Envois d'un message
+			iTestSend = send(clientSockList[it->first], _msg, /*(int)strlen(msg)*/recvbuflen, 0);
+			if (iTestSend == SOCKET_ERROR) {
+				std::cout << "Echec de l'envois : " << WSAGetLastError() << std::endl;
+			}
+		}
+		break;
+	case SOCK_DGRAM:
+		/* Tranmsit data to get time */
+		server_length = sizeof(struct sockaddr_in);
+
+		/*if (sendto(mySock, _msg, (int)strlen(_msg) + 1,
+			0, (struct sockaddr *)&sockaddr, server_length) == -1)
+		{
+			fprintf(stderr, "Error transmitting data.\n");
+			closesocket(mySock);
+			WSACleanup();
+			return 1;
+		}*/
+		printf("Miss: UDP SendMsg doesn't exist for server !");
+		break;
+	default:
+		std::cout << "Error: This socktype doesn't taken care of." << std::endl;
+		break;
+	}
+
+	return 0;
+}
+
 int ServerLC::ShutdownServer()
 {
 	//Shutdown du client
@@ -124,7 +161,9 @@ int ServerLC::TCP_Protocol(int _sockListID)
 		if (iTest > 0) {
 			//Affichage du message de l'autre
 			NetworkLC::Datas_mtx->lock();
-			dataList.insert(DATAS_PAIR(recvbuf[0], recvbuf));
+			char* newData = new char[sizeof(recvbuf)];
+			memcpy(newData, recvbuf, sizeof(recvbuf));
+			dataList.insert(DATAS_PAIR(recvbuf[0], newData));
 			NetworkLC::Datas_mtx->unlock();
 			//std::cout << "Client n°" << _sockListID << ": " << recvbuf << std::endl;
 

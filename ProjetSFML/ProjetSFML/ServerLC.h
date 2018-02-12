@@ -31,6 +31,8 @@ public:
 
 	int CreateServer();
 
+	int SendMsg(char _msg[DEFAULT_BUFLEN]);
+
 	int ShutdownServer();
 
 	//Informations

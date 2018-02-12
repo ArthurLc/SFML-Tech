@@ -6,9 +6,9 @@ sfNetworkButton::sfNetworkButton()
 	text = CreateNewText("NewNetworkButton");
 	sprite = LoadSprite("../Datas/ContactButton.png", 1);
 
-	SetPos({ 0,0 });
-	SetRot({ 0,0 });
-	SetScale({ 1,1 });
+	sfTransform::SetPos({ 0,0 });
+	sfTransform::SetRot({ 0,0 });
+	sfTransform::SetScale({ 1,1 });
 
 	isMouseOnButton = false;
 	isMouseDown = false;
@@ -22,9 +22,9 @@ sfNetworkButton::sfNetworkButton(std::string _sText, NetworkUpdateMode _updateMo
 	text = CreateNewText(_sText);
 	sprite = LoadSprite(_sSpriteFile, 1);
 
-	SetPos(_pos);
-	SetRot(_rot);
-	SetScale(_scale);
+	sfTransform::SetPos(_pos);
+	sfTransform::SetRot(_rot);
+	sfTransform::SetScale(_scale);
 
 	isMouseOnButton = false;
 	isMouseDown = false;
@@ -45,24 +45,32 @@ void sfNetworkButton::SetPos(sf::Vector2f _pos)
 	case NetworkUpdateMode::OnChange:
 		if (GetPos() != _pos)
 		{
-			sfTransform::SetPos(_pos);
-
-			if (ClientLC::Instance != nullptr)
-			{
-				char datas[1 + 6 * sizeof(float)];
-				NetworkButtonToBytes(datas, *this);
-				ClientLC::Instance->SendMsg(datas);
+			if (ClientLC::Instance != nullptr) {
+				sf::Vector2f previousPos = GetPos();
+				NetworkIdentity::Obj_mtx->lock();
+				sfTransform::SetPos(_pos);
+				ClientLC::Instance->SendMsg(NetworkButtonToBytes(*this));
+				sfTransform::SetPos(previousPos);
+				NetworkIdentity::Obj_mtx->unlock();
+			}
+			else if (ServerLC::Instance != nullptr) {
+				NetworkIdentity::Obj_mtx->unlock();
+				sfTransform::SetPos(_pos);
+				ServerLC::Instance->SendMsg(NetworkButtonToBytes(*this));
+				NetworkIdentity::Obj_mtx->lock();
 			}
 		}
 		break;
 	case NetworkUpdateMode::Continuous:
-		sfTransform::SetPos(_pos);
-
-		if (ClientLC::Instance != nullptr)
-		{
-			char datas[1 + 6 * sizeof(float)];
-			NetworkButtonToBytes(datas, *this);
-			ClientLC::Instance->SendMsg(datas);
+		if (ClientLC::Instance != nullptr) {
+			sf::Vector2f previousPos = GetPos();
+			sfTransform::SetPos(_pos);
+			ClientLC::Instance->SendMsg(NetworkButtonToBytes(*this));
+			sfTransform::SetPos(previousPos);
+		}
+		else if (ServerLC::Instance != nullptr) {
+			sfTransform::SetPos(_pos);
+			ServerLC::Instance->SendMsg(NetworkButtonToBytes(*this));
 		}
 		break;
 	default:
