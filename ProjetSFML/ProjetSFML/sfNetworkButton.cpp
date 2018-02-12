@@ -77,3 +77,11 @@ void sfNetworkButton::SetPos(sf::Vector2f _pos)
 		break;
 	}
 }
+
+
+void sfNetworkButton::Draw(sf::RenderWindow& _window)
+{
+	Obj_mtx->lock();
+	sfButton::Draw(_window);
+	Obj_mtx->unlock();
+}

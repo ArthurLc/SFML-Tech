@@ -1,2 +1,24 @@
-﻿  NetworkLC.cpp
+﻿  sfTransform.cpp
+  text.cpp
+  system.cpp
+  stdafx.cpp
+  sprite.cpp
+  sfNetworkTransform.cpp
+  sfNetworkButton.cpp
+  sfInputField.cpp
+  sfCursor.cpp
+  main.cpp
+  sfButton.cpp
+  ServerLC.cpp
+  NetworkLC.cpp
+  NetworkIdentity.cpp
+  Menu.cpp
+  math.cpp
+  InGame.cpp
+  converter.cpp
+  ClientLC.cpp
+  audio.cpp
+  Génération de code en cours...
+d:\svn\2017-2018\sections\prog3a\arthurlacour\c++\sfml-tech\projetsfml\projetsfml\converter.cpp(84): warning C4172: retourne l'adresse d'une variable locale ou : datas temporaire
+d:\svn\2017-2018\sections\prog3a\arthurlacour\c++\sfml-tech\projetsfml\projetsfml\converter.cpp(30): warning C4172: retourne l'adresse d'une variable locale ou : datas temporaire
   ProjetSFML.vcxproj -> D:\SVN\2017-2018\Sections\Prog3A\arthurlacour\C++\SFML-Tech\ProjetSFML\Debug\ProjetSFML.exe

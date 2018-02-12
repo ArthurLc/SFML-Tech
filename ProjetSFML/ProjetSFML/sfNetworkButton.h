@@ -9,5 +9,7 @@ public:
 	void SetPos(sf::Vector2f _pos);
 	//virtual void SetRot(sf::Vector2f _rot) { rot = _rot; }
 	//virtual void SetScale(sf::Vector2f _scale) { scale = _scale; }
+
+	void Draw(sf::RenderWindow& _window);
 };
 
