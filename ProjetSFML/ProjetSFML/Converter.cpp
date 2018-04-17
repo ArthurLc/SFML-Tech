@@ -3,7 +3,7 @@
 
 char* NetworkTransformToBytes(sfNetworkTransform _tr)
 {
-	char datas[1 + 6 * sizeof(float)];
+	char* datas = new char[1 + 6 * sizeof(float)];
 	char* floatDatareader = datas;
 
 	char tempChar = _tr.GetNetworkID();
@@ -57,7 +57,7 @@ void BytesToNetworkTransform(sfNetworkTransform* _tr, char bytes_temp[1 + 6 * si
 
 char* NetworkButtonToBytes(sfNetworkButton _button)
 {
-	char datas[1 + 6 * sizeof(float)];
+	char* datas = new char[1 + 6 * sizeof(float)];
 	char* floatDatareader = datas;
 
 	char tempChar = _button.GetNetworkID();

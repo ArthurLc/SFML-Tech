@@ -1,24 +1,7 @@
-﻿  ClientLC.cpp
-  Converter.cpp
-  InGame.cpp
-  Menu.cpp
-  NetworkLC.cpp
-  ServerLC.cpp
-  audio.cpp
-  main.cpp
-  math.cpp
-  sfButton.cpp
-  sfCursor.cpp
-  sfNetworkButton.cpp
-  sfNetworkTransform.cpp
-  sfTransform.cpp
-  sprite.cpp
-  stdafx.cpp
-  system.cpp
-  text.cpp
+﻿  converter.cpp
   Génération de code en cours
-  11 of 378 functions ( 2.9%) were compiled, the rest were copied from previous compilation.
-    2 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+  7 of 858 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
-  ProjetSFML.vcxproj -> D:\SVN\2017-2018\Sections\Prog3A\arthurlacour\C++\SFML-Tech\ProjetSFML\Release\ProjetSFML.exe
+  ProjetSFML.vcxproj -> C:\Users\ArthurLc\Documents\Créajeux\Cours\PROG3 (2017-2018)\C++\SFML-Tech\ProjetSFML\Release\ProjetSFML.exe
