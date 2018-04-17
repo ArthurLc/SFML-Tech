@@ -154,6 +154,8 @@ int ServerLC::TCP_ClientRecepter()
 
 int ServerLC::TCP_Protocol(int _sockListID)
 {
+	char msg[DEFAULT_BUFLEN]; //Msg de protocol
+
 	do {
 		for (int i = 0; i < recvbuflen; i++)
 			recvbuf[i] = '\0';

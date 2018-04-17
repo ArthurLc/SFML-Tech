@@ -48,7 +48,6 @@ protected:
 	struct addrinfo *result = NULL, *ptr = NULL, hints; //Structure nécessaire à la connexion d'un serveur
 														// Messages
 	int recvbuflen = DEFAULT_BUFLEN;
-	char msg[DEFAULT_BUFLEN]; //Msg de confirmation
 	char recvbuf[DEFAULT_BUFLEN];
 	// Other
 	int iTest; //Variable de test FB
