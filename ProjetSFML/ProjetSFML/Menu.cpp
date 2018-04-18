@@ -17,6 +17,10 @@ Menu::Menu()
 
 Menu::~Menu()
 {
+	delete host_Button;
+	delete join_Button;
+	delete adress_InputField;
+	delete credits_Button;
 }
 
 

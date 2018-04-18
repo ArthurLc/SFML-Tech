@@ -35,6 +35,7 @@ sfNetworkButton::sfNetworkButton(std::string _sText, NetworkUpdateMode _updateMo
 
 sfNetworkButton::~sfNetworkButton()
 {
+	//delete obj;
 }
 
 

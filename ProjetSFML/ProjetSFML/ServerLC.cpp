@@ -75,6 +75,7 @@ int ServerLC::SendMsg(char _msg[DEFAULT_BUFLEN])
 		{
 			//Envois d'un message
 			iTestSend = send(clientSockList[it->first], _msg, /*(int)strlen(msg)*/recvbuflen, 0);
+			free(_msg);
 			if (iTestSend == SOCKET_ERROR) {
 				std::cout << "Echec de l'envois : " << WSAGetLastError() << std::endl;
 			}

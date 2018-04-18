@@ -10,7 +10,8 @@ InGame::InGame()
 
 InGame::~InGame()
 {
-
+	delete m_pNetButton;
+	delete m_pNetButton2;
 }
 
 

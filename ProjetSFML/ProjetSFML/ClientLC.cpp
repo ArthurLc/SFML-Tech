@@ -71,6 +71,7 @@ int ClientLC::SendMsg(char _msg[DEFAULT_BUFLEN])
 	case SOCK_STREAM:
 		//Envois d'un message
 		iTest = send(mySock, _msg, /*(int)strlen(_msg)*/recvbuflen, 0);
+		delete[] _msg;
 		if (iTest == SOCKET_ERROR) {
 			std::cout << "Error : " << WSAGetLastError() << std::endl;
 			closesocket(mySock);
