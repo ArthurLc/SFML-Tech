@@ -11,6 +11,7 @@ sfCursor::sfCursor()
 
 sfCursor::~sfCursor()
 {
+	delete currentCursor;
 }
 
 void sfCursor::BlitCursor(sf::RenderWindow& _window)
