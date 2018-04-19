@@ -20,7 +20,7 @@ int main()
 	//HideConsole();
 	GAME_STATE gameState = GAME_STATE::E_Menu;
 	Menu* menu = new Menu();
-	InGame* game = new InGame();
+	InGame* game = nullptr;
 
 	sf::RenderWindow window;
 	sfCursor* cursor = new sfCursor();
@@ -44,6 +44,11 @@ int main()
 			{
 			case E_Menu:
 				menu->EventLoop(cursor, &gameState, event, window);
+				if (gameState == E_Game && menu != nullptr) {
+					delete menu;
+					menu = nullptr;
+					game = new InGame();
+				}
 				break;
 			case E_Game:
 				game->EventLoop(cursor, &gameState, event, window);
@@ -51,6 +56,8 @@ int main()
 			default:
 				break;
 			}
+
+			
 
 			// évènement "fermeture demandée" : on ferme la fenêtre
 			if (event.type == sf::Event::Closed)
